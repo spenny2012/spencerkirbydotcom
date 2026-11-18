@@ -1,0 +1,80 @@
+---
+import { profile } from '../data/profile';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <div>
+      <strong>{profile.name}<span>.</span></strong>
+      <p>{profile.role} · {profile.discipline}</p>
+    </div>
+    <p class="copyright">© {year} {profile.name}</p>
+    <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-inner {
+    display: grid;
+    min-height: 9rem;
+    align-items: center;
+    gap: 2rem;
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  strong {
+    font-size: 0.9rem;
+    font-weight: 650;
+  }
+
+  strong span,
+  a span {
+    color: var(--accent);
+  }
+
+  p {
+    margin: 0.35rem 0 0;
+    color: var(--muted);
+    font-size: 0.65rem;
+  }
+
+  .copyright {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+  }
+
+  a {
+    justify-self: end;
+    color: var(--muted-light);
+    font-size: 0.7rem;
+    text-decoration: none;
+  }
+
+  a span {
+    margin-left: 0.4rem;
+  }
+
+  a:hover {
+    color: var(--text);
+  }
+
+  @media (max-width: 620px) {
+    .footer-inner {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      gap: 1.5rem;
+      grid-template-columns: 1fr auto;
+    }
+
+    .copyright {
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+  }
+</style>

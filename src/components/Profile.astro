@@ -1,0 +1,243 @@
+---
+import { profile } from '../data/profile';
+---
+
+<section id="profile" class="profile-section" aria-labelledby="profile-title">
+  <div class="shell profile-inner">
+    <div class="section-heading" data-reveal>
+      <p class="section-kicker">01 / Profile</p>
+      <h2 id="profile-title">Experienced in .NET.<br />Based in California.</h2>
+    </div>
+
+    <div class="profile-copy" data-reveal style="--reveal-delay: 100ms">
+      <p>I’m a senior software engineer with <strong>14 years of experience</strong> working with <strong>.NET and C#</strong>.</p>
+      <p>Based in Camarillo, California, I bring a straightforward focus: software engineering, done with care.</p>
+      <a href={`mailto:${profile.email}`}>Connect with me <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <div class="profile-facts" data-reveal>
+      <article>
+        <div class="fact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18" /><circle cx="12" cy="12" r="8" /></svg>
+        </div>
+        <span>Experience</span>
+        <h3>14 years</h3>
+        <p>Senior software engineering experience.</p>
+      </article>
+      <article>
+        <div class="fact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" /></svg>
+        </div>
+        <span>Technology</span>
+        <h3>.NET / C#</h3>
+        <p>A focused Microsoft technology background.</p>
+      </article>
+      <article>
+        <div class="fact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>
+        </div>
+        <span>Location</span>
+        <h3>{profile.location}</h3>
+        <p>Ventura County, Southern California.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .profile-section {
+    margin-top: clamp(5rem, 10vw, 9rem);
+    padding: 1px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .profile-inner {
+    display: grid;
+    padding-top: clamp(5rem, 9vw, 8rem);
+    padding-bottom: clamp(5rem, 9vw, 8rem);
+    gap: 2rem 5rem;
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  }
+
+  .section-kicker {
+    margin: 0 0 1.5rem;
+    color: #686960;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    max-width: 46rem;
+    margin: 0;
+    font-size: clamp(2.7rem, 5vw, 4.8rem);
+    font-weight: 560;
+    letter-spacing: -0.065em;
+    line-height: 1.02;
+  }
+
+  .profile-copy {
+    align-self: end;
+    padding-bottom: 0.4rem;
+  }
+
+  .profile-copy p {
+    margin: 0;
+    color: #55574f;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .profile-copy p + p {
+    margin-top: 0.8rem;
+  }
+
+  .profile-copy strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .profile-copy a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 1.6rem;
+    border-bottom: 1px solid #a9aa9f;
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 650;
+    line-height: 2;
+    text-decoration: none;
+  }
+
+  .profile-copy a span {
+    color: #5d751c;
+    transition: transform 180ms ease;
+  }
+
+  .profile-copy a:hover span {
+    transform: translate(0.15rem, -0.15rem);
+  }
+
+  .profile-facts {
+    display: grid;
+    margin-top: 3.5rem;
+    border-top: 1px solid #d3d3c9;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .profile-facts article {
+    position: relative;
+    padding: 2.2rem 2rem 0;
+  }
+
+  .profile-facts article:first-child {
+    padding-left: 0;
+  }
+
+  .profile-facts article + article {
+    border-left: 1px solid #d3d3c9;
+  }
+
+  .fact-icon {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-bottom: 2.8rem;
+    place-items: center;
+    border: 1px solid #cacbbf;
+    border-radius: 50%;
+    color: #596a2d;
+  }
+
+  .fact-icon svg {
+    width: 1.05rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.35;
+  }
+
+  .profile-facts article > span {
+    color: #77786f;
+    font-family: var(--font-mono);
+    font-size: 0.59rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin: 0.65rem 0 0;
+    font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+    font-weight: 570;
+    letter-spacing: -0.04em;
+  }
+
+  .profile-facts article p {
+    margin: 0.65rem 0 0;
+    color: #6b6c63;
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 760px) {
+    .profile-inner {
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+
+    .profile-copy {
+      max-width: 35rem;
+    }
+
+    .profile-facts {
+      margin-top: 2rem;
+    }
+
+    .profile-facts article {
+      padding: 1.8rem 1.2rem 0;
+    }
+
+    .fact-icon {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .profile-facts {
+      grid-template-columns: 1fr;
+    }
+
+    .profile-facts article,
+    .profile-facts article:first-child {
+      display: grid;
+      padding: 1.5rem 0;
+      column-gap: 1.2rem;
+      grid-template-columns: auto 1fr;
+    }
+
+    .profile-facts article + article {
+      border-top: 1px solid #d3d3c9;
+      border-left: 0;
+    }
+
+    .fact-icon {
+      margin: 0;
+      grid-row: 1 / 4;
+    }
+
+    .profile-facts article > span,
+    h3,
+    .profile-facts article p {
+      grid-column: 2;
+    }
+
+    h3 {
+      margin-top: 0.35rem;
+    }
+  }
+</style>
